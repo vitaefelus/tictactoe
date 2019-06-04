@@ -7,72 +7,7 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <title>Tic-Tac-Toe</title>
 
-        <script>
-            var k = 0;
-            window.addEventListener('load', function () {
-
-              var field = document.getElementById("main");
-              var selectColor = document.getElementById("selectColor");
-              var fieldSize = document.getElementById("fieldSize");
-              var width = window.innerWidth;
-              var height = window.innerHeight;
-
-              initOX(3);
-
-              //LISTENERS
-              fieldSize.addEventListener("change",function(){
-                field.innerHTML = "";
-                initOX(fieldSize.value);
-              },false)
-
-              selectColor.addEventListener("change",function(){
-                var coloring = document.getElementsByClassName("coloring");
-                for(i=0;i<coloring.length;i++){
-                  var x = selectColor.value;
-                  coloring[i].style.background = x;
-                }
-              },false)
-              //--------
-
-              //FUNCTIONS
-              function size(){
-                if(width>=height){
-                  return height;
-                }else{
-                  return width;
-                }
-              }
-
-              function initOX(n) {
-                var sizing = 0;
-                sizing = size()/n;
-                for(var j=0;j<n;j++){
-                  for(var i=0;i<n;i++){
-                    var square = document.createElement("div");
-                    square.setAttribute("class","coloring")
-                    square.style.position = "absolute";
-                    square.style.width = sizing + "px";
-                    square.style.height = sizing + "px";
-                    square.style.background = "#ff0000";
-                    square.style.border = "4px solid black";
-                    square.style.marginLeft = i*sizing + "px";
-                    square.style.marginTop = j*sizing + "px";
-                    field.appendChild(square);
-                    square.addEventListener("click",function(event){
-                      var target = event.target;
-                      if(k%2){
-                        target.innerHTML = "X";
-                      }else{
-                        target.innerHTML = "O";
-                      }
-                      k++;
-                    },false)
-                  }
-                }
-              };
-              //==========
-            },false)
-        </script>
+        <script src="js/tictactoe.js"></script>
     </head>
     <body>
 
